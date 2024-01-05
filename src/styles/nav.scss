@@ -1,0 +1,49 @@
+.logo {
+    position: fixed;
+    z-index: 202;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 201;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 20px 10px 0 0;
+    width: 600px;
+}
+
+.link {
+    color: $light;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-under {
+    width: 100%;
+    height: 2px;
+    background: $light;
+    margin: 7px 0 0 0;
+}
+
+.triangle-down {
+    position: absolute;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid white;
+    display: inline-block;
+    top: 51px;
+}
