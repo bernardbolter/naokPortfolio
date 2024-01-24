@@ -8,24 +8,36 @@ import Hero2 from '/public/images/02_SRWRITE_UAH_LOWBW.jpg'
 import Hero3 from '/public/images/03_SRWRITE_TEUFELSBERG_LOWBW.jpg'
 import Hero4 from '/public/images/04_SRWRITE_PARK_LOWBW.jpg'
 
+const images = [Hero1, Hero2, Hero3, Hero4]
+
 const Heros = () => {
-    const [imageIndex, setImageIndex] = useState(0)
-    const [currentImage, setCurrentImage] = useState(Hero1)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     useEffect(() => {
-        console.log(imageIndex)
-        
-    }, [])
+        const interval = setInterval(() => {
+          // Change the current image every 3000 milliseconds (3 seconds)
+          setCurrentImageIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+          );
+        }, 5000);
+    
+        return () => clearInterval(interval);
+      }, []);
 
     return (
         <div className="heros-container">
-            <Image
-                src={currentImage}
-                alt="NAOK image"
-                placeholder="blur"
-                fill={true}
-                style={{objectFit: "cover"}}
-            />
+            {images.map((image, index) => (
+                <Image
+                    src={image}
+                    key={index}
+                    className={`image-fade ${
+                        currentImageIndex === index ? 'visible' : 'hidden'
+                    }`}
+                    alt={`NAOK hero image ${index}`}
+                    fill={true}
+                    style={{objectFit: "cover"}}
+                />
+            ))}
         </div>
     )
 }

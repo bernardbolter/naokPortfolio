@@ -1,5 +1,5 @@
 .logo {
-    position: fixed;
+    position: absolute;
     z-index: 202;
     top: 20px;
     left: 20px;
@@ -18,32 +18,79 @@
     top: 0;
     right: 0;
     margin: 0;
-    padding: 20px 10px 0 0;
-    width: 600px;
+    padding: 30px 30px 0 0;
+    color: $dark;
+    z-index: 303;
+
+    .link-0 {
+        margin: 0 20px 0 0;
+    }
+
+    .link-4 {
+        margin: 0 0 0 20px;
+    }
+}
+
+.nav-links-mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background: rgba(255,255,255,.7);
+    width: 170px;
+    padding: 70px 40px 20px 0;
+    border-bottom-left-radius: 10px;
+    transform: translateX(0);
+    transition: all .5s ease-in-out;
+
+    .link {
+        margin: 0;
+        font-size: 18px;
+        padding: 10px 0;
+        opacity: .8;
+    }
+
+    .link-on {
+        text-decoration: underline;
+    }
+}
+
+.nav-links-open {
+    transform: translateX(200px);
+    transition: all .5s ease-in-out;
 }
 
 .link {
-    color: $light;
-    font-size: 20px;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 400;
     margin: 0;
-    padding: 0;
     text-decoration: none;
     cursor: pointer;
 }
 
 .nav-under {
     width: 100%;
-    height: 2px;
-    background: $light;
+    height: 1px;
+    background: $dark;
     margin: 7px 0 0 0;
+    display: block;
+}
+
+.nav-under-mobile {
+    display: none;
 }
 
 .triangle-down {
     position: absolute;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-top: 20px solid white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid $dark;
     display: inline-block;
-    top: 51px;
+    top: 58px;
+    left: 0;
+}
+
+.triangle-down-mobile {
+    display: none;
 }

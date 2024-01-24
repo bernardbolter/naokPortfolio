@@ -1,7 +1,28 @@
+"use client"
+
+import { useContext, useState, useEffect } from "react"
+import { NaokContext } from "@/providers/NaokProvider"
+import Artwork from "@/components/artwork"
+
+import { shuffle } from "@/helpers"
+
 const AvantLetters = () => {
+    const [naok] = useContext(NaokContext)
+    const [shuffledArt, setShuffledArt] = useState([])
+
+    useEffect(() => {
+        if (Object.keys(naok.data).length !== 0) {
+            setShuffledArt(shuffle(naok.data.avantletters))
+        }
+    },[naok.data])
+
     return (
-        <main className="letters-container">
-            <h1>Advant Letters</h1>
+        <main className="artworks-container letters-container">
+            {shuffledArt.map((letter, i) => {
+                return (
+                    <Artwork artwork={letter} key={i} />
+                )
+            })}
         </main>
     )
 }

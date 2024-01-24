@@ -1,0 +1,43 @@
+.artwork-container {
+    width: 100%;
+    position: relative;
+
+    img {
+        position: relative !important;
+    }
+}
+
+.artwork-text {
+    width: 90%;
+    margin: 0 5% 30px;
+    padding: 0;
+
+    h1 {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 7px 0 14px 0;
+        opacity: .9;
+    }
+
+    h4 {
+        font-size: 14px;
+        margin: 0;
+        font-weight: 600;
+        opacity: .6;
+    }
+
+    p {
+        font-size: 12px;
+        margin: 0;
+        font-weight: 400;
+        opacity: .5;
+    }
+}
+
+.artwork-line {
+    width: 50%;
+    height: 1px;
+    background: $dark;
+    margin: 30px 25% 50px;
+    opacity: .2;
+}
