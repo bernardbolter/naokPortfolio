@@ -32,8 +32,8 @@
 {"name" : "SRWRITE_WILDRAIN_BigWall_LOW" , "date" : "2022" , "Title" : "Rain" , "details" : "Original work Mockup" , "category" : "murals"} , 
 {"name" : "SRWRITE_WINDOWWALL_shop_LOW" , "date" : "2021" , "Title" : "No es donde naces, es donde creces" , "details" : "Original work Mockup" , "category" : "murals"} , 
 {"name" : "SRWRTE_ABSTRACT_BUILDING_WALL_LOW" , "date" : "2021" , "Title" : "Naok Abstracting" , "details" : "Original work Mockup" , "category" : "murals"} , 
-{"name" : "SRWRITE-MenzelTrailer" , "date" : "Berlin 2023" , "Title" : "" , "details" : "Shoot by Raw.35mm" , "category" : "videos"} , 
-{"name" : "SRWRITE_SARAJOLA_2022" , "date" : "Mallorca 2022" , "Title" : "" , "details" : "Shoot by Ritmo" , "category" : "videos"} , 
-{"name" : "DC_PARKHAUS_TIMELAPSES" , "date" : "Berlin 2021" , "Title" : "" , "details" : "Shoot by Makearte" , "category" : "videos"}, 
-{"name" : "SRWRITE_STUDIOSESSIONS" , "date" : "Berlin 2023" , "Title" : "" , "details" : "Shoot by ECP" , "category" : "videos"}
+{"name" : "SRWRITE-MenzelTrailer" , "date" : "Berlin 2023" , "Title" : "" , "details" : "Shot by Raw.35mm" , "category" : "videos"} , 
+{"name" : "SRWRITE_SARAJOLA_2022" , "date" : "Mallorca 2022" , "Title" : "" , "details" : "Shot by Ritmo" , "category" : "videos"} , 
+{"name" : "DC_PARKHAUS_TIMELAPSES" , "date" : "Berlin 2021" , "Title" : "" , "details" : "Shot by Makearte" , "category" : "videos"}, 
+{"name" : "SRWRITE_STUDIOSESSIONS" , "date" : "Berlin 2023" , "Title" : "" , "details" : "Shot by ECP" , "category" : "videos"}
 ]

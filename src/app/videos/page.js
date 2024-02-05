@@ -1,26 +1,46 @@
 "use client"
 
-import { useContext, useState, useEffect } from "react"
+import { useContext } from "react"
 import { NaokContext } from "@/providers/NaokProvider"
+import { usePathname } from "next/navigation"
+import Nav from "@/components/nav"
 import Video from "@/components/video"
+import Footer from "@/components/footer"
 
-import { shuffle } from "@/helpers"
+import Loading from "@/svg/loading"
 
 const Videos = () => {
     const [naok] = useContext(NaokContext)
-    const [shuffledVideos, setShuffledVideos] = useState([])
-
-    useEffect(() => {
-        if (Object.keys(naok.data).length !== 0) {
-            setShuffledVideos(shuffle(naok.data.videos))
-        }
-    }, [naok.data])
+    const path = usePathname()
 
     return (
         <main className="videos-container" suppressHydrationWarning>
-            {shuffledVideos.map((video, i) => (
-                <Video video={video} key={i} />
-            ))}
+            {naok.dataLoaded && <Nav />}
+
+            {   naok.videos.length > 0 
+                && 
+                naok.videos.map((video, i) => {
+                    return (
+                        <Video video={video} key={i} odd={i % 2} />
+                    )
+                })
+            }
+
+            {naok.errorMsg.length > 0 && (
+                <div className="error-message">
+                    <p>{naok.errorMsg}</p>
+                </div>
+            )}
+
+            {!naok.dataLoaded && (
+                <div className="loading-container">
+                    <Loading color="black"/>
+                    <p
+                        style={{ color: path === '/' ? 'white' : "black" }}
+                    >loading...</p>
+                </div>
+            )}
+            <Footer />
         </main>
     )
 }

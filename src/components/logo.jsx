@@ -2,10 +2,13 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import useWindowSize from "@/helpers/useWindowSize"
 
 import LogoImg from '/public/images/naok_logo.png'
 
 const Logo = () => {
+    const size = useWindowSize()
+
     return (
         <Link 
             className="logo"
@@ -14,8 +17,8 @@ const Logo = () => {
             <Image
                 src={LogoImg}
                 alt="NAOK logo"
-                width={350}
-                height={172}
+                width={size.width < 599 ? 200 : 350}
+                height={size.width < 599 ? 100: 172}
             />
         </Link>
     )

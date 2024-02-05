@@ -1,41 +1,65 @@
 "use client"
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from "next/link"
 import useWindowSize from '@/helpers/useWindowSize'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
 const links = [
-    { slug: 'avant-letters', name: 'Avant Letters' },
-    { slug: 'realism', name: 'Realism' },
-    { slug: 'murals', name: 'Murals' },
-    { slug: 'videos', name: 'Videos' },
-    { slug: 'contact', name: 'Contact' }
+    { slug: 'avant-letters', name: 'Avant Letters', left: 54 },
+    { slug: 'realism', name: 'Realism', left: 174},
+    { slug: 'murals', name: 'Murals', left: 268 },
+    { slug: 'videos', name: 'Videos', left: 359 },
+    { slug: 'calligraphy', name: 'Calligraphy', left: 469},
+    { slug: 'contact', name: 'Contact', left: 580 }
 ]
 
 const Nav = () => {
-    const [nav, setNav] = useState(0)
+    const [viewIntialLink, setViewInitalLink] = useState(true)
     const [navOpen, setNavOpen] = useState(false)
-    const [linkSize, setLinkSize] = useState(0)
-    const navRef = useRef(null)
+    const [initalLink, setInitalLink] = useState(0)
+    const [currentLink, setCurrentLink] = useState(0)
     const size = useWindowSize()
     const path = usePathname()
 
-    useEffect(() => {
-        const currentNavSize = navRef.current.clientWidth
-        setLinkSize(currentNavSize / links.length)
-    },[size])
+    const decideNav = (link, enter) => {
+        if (path === '/') {
+            if (enter) {
+                setViewInitalLink(true)
+            } else {
+                setViewInitalLink(false)
+            }
+        }
+        if (enter) {
+            const getCurrentLink = links.find(l => l.slug === link)
+            setCurrentLink(getCurrentLink.left)
+        } else {
+            setCurrentLink(initalLink)
+        }
+    }
 
     useEffect(() => {
-        if (size.width > 768) {
+        if (size.width > 999) {
             setNavOpen(false)
         }
     }, [size])
 
+    useEffect(() => {
+        if (path === '/') {
+            setViewInitalLink(false)
+        } else {
+            setViewInitalLink(true)
+            const getInitialLink = links.find(link => link.slug === path.substring(1))
+            setInitalLink(getInitialLink.left)
+            setCurrentLink(getInitialLink.left)
+        }
+    },[path])
+
+
     return (
         <>
-            {size.width < 769 && (
+            {size.width < 999 && (
                 <div
                     onClick={() => setNavOpen(!navOpen)}
                     className={navOpen ? 'menu-icon menu-icon-open' : 'menu-icon'}
@@ -47,8 +71,7 @@ const Nav = () => {
                 </div>
             )}
             <nav
-                className={size.width > 768 ? 'nav-links' : navOpen ? 'nav-links nav-links-mobile' : 'nav-links nav-links-mobile nav-links-open'}
-                ref={navRef}
+                className={size.width > 999 ? 'nav-links' : navOpen ? 'nav-links nav-links-mobile' : 'nav-links nav-links-mobile nav-links-open'}
             >
                 {links.map((link, i) => (
                     <Link
@@ -56,20 +79,22 @@ const Nav = () => {
                         className={`/${link.slug}` === path ? `link link-${i} link-on` : `link link-${i}`}
                         key={i}
                         href={`/${link.slug}`}
-                        onMouseEnter={() => setNav(i)}
-                        onMouseLeave={() => setNav(0)}
+                        onMouseEnter={() => decideNav(link.slug, true)}
+                        onMouseLeave={() => decideNav(initalLink, false)}
                     >
                         {link.name}
                     </Link>
+
                 ))}
                 <motion.div 
-                    className={size.width > 768 ? 'triangle-down' : 'triangle-down triangle-down-mobile'}
-                    initial={{ x: linkSize / 2 }}
-                    animate={{ x: (linkSize / 2) + (linkSize * nav) }}
+                    className={size.width > 999 ? 'triangle-down' : 'triangle-down triangle-down-mobile'}
+                    initial={{ x: initalLink }}
+                    animate={{ x: currentLink }}
                     transition={{ duration: 0.2, origin: 1 }}
+                    style={{ visibility: viewIntialLink ? 'visible' : 'hidden'}}
                 >
                 </motion.div>
-                <div className={size.width > 768 ? 'nav-under' : 'nav-under nav-under-mobile'}></div>
+                <div className={size.width > 999 ? 'nav-under' : 'nav-under nav-under-mobile'} />
             </nav>
         </>
     )

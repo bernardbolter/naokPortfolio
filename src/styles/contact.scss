@@ -1,3 +1,56 @@
 .contact-container {
     display: block;
 }
+
+.contact-content {
+    width: 90%;
+    margin: 170px 5% 30px;
+
+    @media screen and (min-width: 599px) {
+        width: 80%;
+        margin: 200px 10% 30px;
+    }
+
+    @media screen and (min-width: 800px) {
+        width: 60%;
+        margin: 250px 10% 30px 30%;
+    }
+
+    @media screen and (min-width: 1000px) {
+        width: 50%;
+        margin: 250px 15% 30px 35%;
+    }
+
+    @media screen and (min-width: 1000px) {
+        width: 40%;
+        margin: 250px 20% 30px 40%;
+    }
+
+    p {
+        font-size: 16px;
+        color: $dark;
+        opacity: .9;
+        line-height: 24px;
+        font-weight: 500;
+    }
+
+    br {
+        display: none;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        font-size: 12px;
+        color: $dark;
+        opacity: .85;
+
+        @media screen and (min-width: 599px) {
+            font-size: 14px;
+        }
+    }
+}

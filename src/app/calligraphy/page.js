@@ -9,7 +9,7 @@ import Footer from "@/components/footer"
 
 import Loading from "@/svg/loading"
 
-const Murals = () => {
+const Calligraphy = () => {
     const [naok] = useContext(NaokContext)
     const path = usePathname()
 
@@ -17,9 +17,9 @@ const Murals = () => {
         <main className="artworks-container calligraphy-container">
             {naok.dataLoaded && <Nav />}
 
-            {   naok.murals.length > 0 
+            {   naok.calligraphy.length > 0 
                 && 
-                naok.murals.map((letter, i) => {
+                naok.calligraphy.map((letter, i) => {
                     return (
                         <Artwork artwork={letter} key={i} odd={i % 2} />
                     )
@@ -30,7 +30,7 @@ const Murals = () => {
                 <div className="error-message">
                     <p>{naok.errorMsg}</p>
                 </div>
-            )}
+            )} 
 
             {!naok.dataLoaded && (
                 <div className="loading-container">
@@ -45,4 +45,4 @@ const Murals = () => {
     )
 }
 
-export default Murals
+export default Calligraphy

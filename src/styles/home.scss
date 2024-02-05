@@ -1,3 +1,47 @@
 .home-container {
     display: block;
 }
+
+.error-message {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        color: $light;
+        width: 50%;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+}
+
+.loading-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+
+    svg {
+        width: 49px;
+        height: 49px;
+        opacity: .8;
+    }
+
+    p {
+        font-size: 13px;
+        color: $light;
+        font-weight: 600;
+        margin: 5px 0 0 0;
+        padding: 0;
+    }
+}
