@@ -1,8 +1,4 @@
 .contact-container {
-    display: block;
-}
-
-.contact-content {
     width: 90%;
     margin: 170px 5% 30px;
 
@@ -13,17 +9,17 @@
 
     @media screen and (min-width: 800px) {
         width: 60%;
-        margin: 250px 10% 30px 30%;
+        margin: 150px 10% 30px 30%;
     }
 
     @media screen and (min-width: 1000px) {
         width: 50%;
-        margin: 250px 15% 30px 35%;
+        margin: 130px 15% 30px 35%;
     }
 
     @media screen and (min-width: 1000px) {
         width: 40%;
-        margin: 250px 20% 30px 40%;
+        margin: 130px 20% 30px 40%;
     }
 
     p {
@@ -53,4 +49,114 @@
             font-size: 14px;
         }
     }
+
+    a {
+        color: $dark;
+    }
+}
+
+.contact-exhibitions {
+    display: block;
+}
+
+.contact-line {
+    width: 100%;
+    margin: 25px 0;
+    height: 1px;
+    background: $dark;
+    display: block;
+}
+
+.contact-form {
+    width: 100%;
+    margin: 0;
+
+    form {
+        width: 100%;
+    }
+}
+
+.contact-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 0 14px 0;
+
+    input, textarea {
+        background: $formback;
+        padding: 9px 4%;
+        width: 100%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-width: 1px;
+        color: $dark;
+        font-size: 14px;
+
+        &:focus {
+            outline: none;
+            background: rgba(255,255,255,.2);
+        }
+    }
+}
+
+
+.form-label {
+    color: $dark;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+}
+
+.contact-submit {
+    width: 50%;
+    height: 30px;
+    color: $light;
+    background: $dark;
+    opacity: .7;
+    transition: opacity .5 ease;
+    margin: 10px 0 0 0;
+    border: none;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .9;
+        transition: opacity .5 ease; 
+    }
+
+    svg {
+        fill: $light;
+    }
+}
+
+.contact-error {
+    color: $error;
+    font-size: 12px;
+    margin: 5px 0;
+    padding: 0;
+    opacity: .6;
+}
+
+.contact-success {
+    color: $success;
+    font-size: 12px;
+    margin: 5px 0;
+    padding: 0;
+    opacity: .6;
+}
+
+.spinner {
+    fill: $light;
+}
+
+@keyframes spinner_ani {
+    100%{transform:rotate(360deg)}
 }

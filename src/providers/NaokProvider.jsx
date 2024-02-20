@@ -19,7 +19,8 @@ const NaokProvider = ({ children }) => {
         dataLoaded: false,
         errorMsg: '',
         contact: {},
-        contactInfo: [],
+        contactInfo: '',
+        contactExhibitions: '',
         contactLoaded: false
     })
 
@@ -45,11 +46,13 @@ const NaokProvider = ({ children }) => {
           return
         }
         const contactData = await response.json()
-        console.log(contactData)
+        const contactInfo = contactData[0].content.rendered
+        const contactExhibitions = contactData[0].acf.exhibitions
         setNaok(state => ({ 
           ...state,
           contactLoaded: true,
-          contact: contactData[0]
+          contactInfo: contactInfo,
+          contactExhibitions: contactExhibitions
         }))
       }
     }, [])

@@ -1,0 +1,24 @@
+.enlarge-container {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+
+  .enlarged-image {
+    position: fixed;
+    z-index: 1001;
+    overflow: hidden;
+
+    img {
+      pointer-events: none;
+    }
+  }

@@ -4,7 +4,15 @@
 
     img {
         position: relative !important;
+        pointer-events: none;
     }
+}
+
+.artwork-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .artwork-text {
@@ -31,6 +39,32 @@
         margin: 0;
         font-weight: 400;
         opacity: .5;
+    }
+}
+
+.artwork-enlarge-container {
+    width: 74px;
+    height: 74px;
+    opacity: .6;
+    transition: opacity .5s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,.5);
+    border-radius: 40px;
+    bottom: 40px;
+    right: 40px;
+
+    &:hover {
+        opacity: .8;
+        transition: opacity .5s ease-in-out;
+    }
+
+    svg {
+        width: 100%;
+        position: absolute;
+        top: 8px;
     }
 }
 
